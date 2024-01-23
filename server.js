@@ -24,6 +24,9 @@ app.use(morgan("dev"));
 app.get("/", (req, res) => {
   res.send("Hello, This is Home Page")
 })
+app.get('*', (req, res) => {
+  res.sendFile('main.html', {root: 'public'});
+});
 // 1 test route
 app.use("/api/v1/test", require("./routes/testRoutes"));
 app.use("/api/v1/auth", require("./routes/authRoutes"));
