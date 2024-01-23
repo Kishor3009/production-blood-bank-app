@@ -20,6 +20,10 @@ app.use(cors());
 app.use(morgan("dev"));
 
 //routes
+
+app.get("/", (req, res) => {
+  res.send("Hello, This is Home Page")
+})
 // 1 test route
 app.use("/api/v1/test", require("./routes/testRoutes"));
 app.use("/api/v1/auth", require("./routes/authRoutes"));
@@ -42,6 +46,6 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(
     `Node Server Running In ${process.env.DEV_MODE} ModeOn Port ${process.env.PORT}`
-      .bgBlue.white
+    .bgBlue.white
   );
 });
